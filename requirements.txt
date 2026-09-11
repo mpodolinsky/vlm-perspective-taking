@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers>=5.17.0
+accelerate
+pillow
+huggingface_hub
+openai
+python-dotenv

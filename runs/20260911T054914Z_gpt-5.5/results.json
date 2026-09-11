@@ -1,0 +1,20 @@
+[
+  {
+    "id": "vpt_procthor_67c13297bbebceed823b",
+    "file_name": "vpt_procthor_67c13297bbebceed823b.png",
+    "target_type": "Bowl",
+    "question": "From this view, can you tell whether the robot can see the Bowl?",
+    "option_a": "Yes, the robot can see the Bowl.",
+    "option_b": "No, the robot cannot see the Bowl.",
+    "option_c": "It is impossible to tell from this point of view.",
+    "ground_truth_choice": "A",
+    "label": "yes",
+    "model_key": "gpt-5.5",
+    "model_repo": "gpt-5.5",
+    "backend": "openai",
+    "prompt": "You are looking at a third-person image from a synthetic indoor scene. A robot is visible somewhere\nin the image. Your job is to judge, purely from what is visible in this image, whether the robot\ncould see a particular object from where it is standing.\n\nFrom this view, can you tell whether the robot can see the Bowl?\n\nThe object in question is the Bowl.\n\nOptions:\nA) Yes, the robot can see the Bowl.\nB) No, the robot cannot see the Bowl.\nC) It is impossible to tell from this point of view.\n\nThink it through first: briefly describe where the robot is, where the target object is (or\nwhether you can even find it), and what might be blocking or allowing a direct line of sight\nbetween them. Only pick option C if you genuinely cannot determine the answer from this viewpoint,\nfor example because something that blocks your own view might not block the robot's, or vice versa.\n\nFinish your response with exactly one line, in this exact format, with nothing after it:\nAnswer: <A/B/C>\n",
+    "raw_response": "The robot is standing on the right side of the room near the kitchen counter, facing toward the dining table. The Bowl appears to be on the dining table among the tabletop items. From the robot\u2019s head position, there seems to be a clear line of sight across the room to the tabletop, with no large object blocking it.\n\nAnswer: A",
+    "parsed_choice": "A",
+    "error": null
+  }
+]

@@ -1,0 +1,20 @@
+You are looking at a third-person image from a synthetic indoor scene. A robot is visible somewhere
+in the image. Your job is to judge, purely from what is visible in this image, whether the robot
+could see a particular object from where it is standing.
+
+{question}
+
+The object in question is the {target_type}.
+
+Options:
+A) {option_a}
+B) {option_b}
+C) {option_c}
+
+Think it through first: briefly describe where the robot is, where the target object is (or
+whether you can even find it), and what might be blocking or allowing a direct line of sight
+between them. Only pick option C if you genuinely cannot determine the answer from this viewpoint,
+for example because something that blocks your own view might not block the robot's, or vice versa.
+
+Finish your response with exactly one line, in this exact format, with nothing after it:
+Answer: <A/B/C>

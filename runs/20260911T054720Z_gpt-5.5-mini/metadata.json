@@ -1,0 +1,13 @@
+{
+  "run_id": "20260911T054720Z_gpt-5.5-mini",
+  "model_key": "gpt-5.5-mini",
+  "model_repo": "gpt-5.5-mini",
+  "display_name": "GPT-5.5 Mini",
+  "backend": "openai",
+  "mode": null,
+  "device": "api",
+  "prompt_file": "prompts/perspective_taking_prompt.txt",
+  "num_images": 2,
+  "start_time": "2026-09-11T05:47:20.229196+00:00",
+  "end_time": "2026-09-11T05:47:24.269537+00:00"
+}
