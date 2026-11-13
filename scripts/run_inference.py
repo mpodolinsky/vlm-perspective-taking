@@ -38,8 +38,8 @@ DEFAULT_OPENAI_ENV_FILE = (
 )
 
 
-def load_dataset_rows(limit: int | None) -> list[dict]:
-    with open(METADATA_PATH) as f:
+def load_dataset_rows(data_dir: Path, limit: int | None) -> list[dict]:
+    with open(data_dir / "metadata.jsonl") as f:
         rows = [json.loads(line) for line in f]
     return rows[:limit] if limit else rows
 
@@ -167,12 +167,12 @@ def append_report_entry(report_path: Path, row: dict, record: dict) -> None:
         f.write("\n".join(lines))
 
 
-def run(model_key: str, limit: int | None, device: str, openai_env_file: str) -> None:
+def run(model_key: str, limit: int | None, device: str, openai_env_file: str, data_dir: Path) -> None:
     if model_key not in MODEL_REGISTRY:
         raise SystemExit(f"Unknown model '{model_key}'. Options: {', '.join(MODEL_REGISTRY)}")
     config = MODEL_REGISTRY[model_key]
 
-    rows = load_dataset_rows(limit)
+    rows = load_dataset_rows(data_dir, limit)
 
     start_time = datetime.now(timezone.utc).isoformat()
     run_id = f"{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{model_key}"
@@ -191,6 +191,7 @@ def run(model_key: str, limit: int | None, device: str, openai_env_file: str) ->
         "mode": config["mode"],
         "device": device if config["backend"] == "transformers" else "api",
         "prompt_file": str(PROMPT_PATH.relative_to(PROJECT_ROOT)),
+        "data_dir": str(data_dir),
         "num_images": len(rows),
         "start_time": start_time,
         "end_time": None,
@@ -205,7 +206,7 @@ def run(model_key: str, limit: int | None, device: str, openai_env_file: str) ->
 
     results = []
     for row in rows:
-        image_path = IMAGES_DIR / row["file_name"]
+        image_path = data_dir / "images" / row["file_name"]
         prompt = build_prompt(row)
 
         error = None
@@ -252,5 +253,6 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=None, help="Only run on the first N images")
     parser.add_argument("--device", default="cuda", help="Device for transformers backend")
     parser.add_argument("--openai-env-file", default=DEFAULT_OPENAI_ENV_FILE, help=".env file with OPENAI_API_KEY")
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR, help="Dataset folder with images/ and metadata.jsonl")
     args = parser.parse_args()
-    run(args.model, args.limit, args.device, args.openai_env_file)
+    run(args.model, args.limit, args.device, args.openai_env_file, args.data_dir)

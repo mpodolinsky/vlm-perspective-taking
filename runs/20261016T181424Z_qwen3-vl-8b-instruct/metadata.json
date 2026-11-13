@@ -1,0 +1,14 @@
+{
+  "run_id": "20261016T181424Z_qwen3-vl-8b-instruct",
+  "model_key": "qwen3-vl-8b-instruct",
+  "model_repo": "Qwen/Qwen3-VL-8B-Instruct",
+  "display_name": "Qwen3-VL 8B Instruct",
+  "backend": "transformers",
+  "mode": "instruct",
+  "device": "cuda",
+  "prompt_file": "prompts/perspective_taking_prompt.txt",
+  "data_dir": "data_iteration_3",
+  "num_images": 50,
+  "start_time": "2026-10-16T18:14:24.039740+00:00",
+  "end_time": "2026-10-16T18:16:39.130252+00:00"
+}

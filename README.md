@@ -34,6 +34,10 @@ uv pip install -r requirements.txt
 python scripts/download_dataset.py
 ```
 
+Later dataset iterations live under `iterations/iteration_N/` in the HF repo. Fetch one with
+`python scripts/download_dataset.py --iteration 3` (saved to `data_iteration_3/`), then run models
+on it with `--data-dir data_iteration_3`.
+
 ## Running a model
 
 Local models (downloaded and run on this machine's GPU):

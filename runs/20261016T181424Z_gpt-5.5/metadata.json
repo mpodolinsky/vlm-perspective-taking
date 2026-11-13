@@ -1,0 +1,14 @@
+{
+  "run_id": "20261016T181424Z_gpt-5.5",
+  "model_key": "gpt-5.5",
+  "model_repo": "gpt-5.5",
+  "display_name": "GPT-5.5",
+  "backend": "openai",
+  "mode": null,
+  "device": "api",
+  "prompt_file": "prompts/perspective_taking_prompt.txt",
+  "data_dir": "data_iteration_3",
+  "num_images": 50,
+  "start_time": "2026-10-16T18:14:24.037537+00:00",
+  "end_time": "2026-10-16T18:28:38.381505+00:00"
+}
